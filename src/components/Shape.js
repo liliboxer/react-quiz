@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Shape({ text }) {
+function Shape({ formattedText }) {
   return (
     <>
-      <p>{text}</p>
+      <pre>{formattedText}</pre>
     </>
   );
 }
 
 Shape.propTypes = {
-  text: PropTypes.string.isRequired
+  formattedText: PropTypes.string.isRequired
 };
 
 export default Shape;
