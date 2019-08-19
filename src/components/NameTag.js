@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
 import TextSelector from './TextSelector';
 import Shape from './Shape';
+import ColorSelector from './ColorSelector';
 
 export default class NameTag extends Component {
   state = {
     text: '',
-    formattedText: ''
+    color: '',
+    backgroundColor: ''
   }
 
   handleTextChange = ({ target }) => {
     this.setState({ text: target.value });
   }
 
+  handleColorChange = ({ target }) => {
+    this.setState({ color: target.value });
+  }
+
+  handleBackgroundColorChange = ({ target }) => {
+    this.setState({ backgroundColor: target.value });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     this.setState(state => {
       return ({ 
-        formattedText: state.text, 
-        text: ' ' 
+        text: state.text
       });
     });
 
@@ -31,8 +40,18 @@ export default class NameTag extends Component {
           handleTextChange={this.handleTextChange}
           handleSubmit={this.handleSubmit}
         />
+
         <Shape
-          formattedText={this.state.formattedText}
+          text={this.state.text}
+          color={this.state.color}
+          backgroundColor={this.state.backgroundColor}
+        />
+
+        <ColorSelector
+          color={this.state.color}
+          backgroundColor={this.state.backgroundColor}
+          handleColorChange={this.handleColorChange}
+          handleBackgroundColorChange={this.handleBackgroundColorChange}
         />
       </>
     );

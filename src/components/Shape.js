@@ -1,16 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Shape({ formattedText }) {
+function Shape({ text, color, backgroundColor }) {
   return (
     <>
-      <pre>{formattedText}</pre>
+      <div style={{ 
+        width: '100px', 
+        height: '100px',
+      }}>
+        <pre style ={{
+          color: color,
+          backgroundColor: backgroundColor,
+        }}>{text}</pre>
+      </div>
     </>
   );
 }
 
 Shape.propTypes = {
-  formattedText: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
 };
 
 export default Shape;
