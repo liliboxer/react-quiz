@@ -11,7 +11,6 @@ function TextSelector({ text, handleTextChange, handleSubmit }) {
         onChange={handleTextChange}
         placeholder="what's yo name?">
       </input>
-      <button>Submit</button>
     </form>
   );
 }
